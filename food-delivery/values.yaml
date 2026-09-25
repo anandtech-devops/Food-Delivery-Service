@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: 166637874911.dkr.ecr.ap-south-1.amazonaws.com/food-delivery-service
+  tag: "3.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+database:
+  url: jdbc:mysql://food-delivery-db.c9kq4iaac3vs.ap-south-1.rds.amazonaws.com:3306/food_delivery
+  username: admin
+
+ingress:
+  enabled: false
+  className: nginx
+  path: /
+  pathType: Prefix
