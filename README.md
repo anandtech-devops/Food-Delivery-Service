@@ -616,6 +616,37 @@ This project demonstrates practical experience with:
 * Root cause analysis
 * Automated deployment verification
 
+## Project Evidence
+
+### GitHub Repository
+
+![GitHub Repository](github-repository.png)
+
+### Jenkins CI/CD Deployment
+
+![Jenkins CI/CD Deployment](jenkins-deployment-success.png)
+
+### AWS ECR Image
+
+![AWS ECR Images](aws-ecr-images.png)
+
+### Kubernetes Running Pods
+
+![Kubernetes Running Pods](kubernetes-running-pods.png)
+
+### Helm Deployment
+
+![Helm Release](helm-release-deployed.png)
+
+### Application API Response
+
+![Food Delivery API Response](food-delivery-api-response.png)
+
+### Grafana Monitoring
+
+![Grafana Food Delivery Monitoring](grafana-food-delivery-monitoring.png)
+
+
 ---
 
 # 👨‍💻 Author
