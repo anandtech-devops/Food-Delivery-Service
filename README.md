@@ -1,6 +1,6 @@
 # Food Delivery Service — DevOps CI/CD & Kubernetes Project
 
-A production-style **Food Delivery Order Management System** built with Java Spring Boot and deployed using a complete DevOps CI/CD workflow.
+A portfolio project demonstrating a Java Spring Boot REST API and a DevOps deployment workflow. The implementation and limitations described below reflect the current repository state.
 
 The project demonstrates application containerization, automated CI/CD, private AWS ECR integration, self-managed Kubernetes deployment, Helm-based releases, AWS RDS MySQL integration, and Kubernetes monitoring using Prometheus and Grafana.
 
@@ -269,7 +269,7 @@ The application is deployed in:
 Namespace: food-delivery
 ```
 
-The Kubernetes Deployment runs multiple replicas for application availability.
+The Kubernetes Deployment is configured with two replicas. This demonstrates replica configuration, but two replicas alone do not guarantee high availability. Readiness/liveness probes, resource requests/limits, PodDisruptionBudget, and pod anti-affinity still need to be added and verified.
 
 ---
 
@@ -283,13 +283,7 @@ Helm chart:
 food-delivery/
 ```
 
-The chart contains:
-
-```text
-Chart.yaml
-values.yaml
-templates/
-```
+The chart contains `Chart.yaml`, `values.yaml`, and templates for the Deployment, Service, and Ingress. **Ingress is disabled by default** (`ingress.enabled: false`), so do not assume external Ingress routing is active. Enable and validate it only after configuring the Ingress controller and host/routing settings.
 
 Helm is used by Jenkins to deploy the application:
 
@@ -554,12 +548,12 @@ Example response:
 
 # 🔒 Security Practices
 
-The project follows basic DevOps security practices:
+The project demonstrates some security-related configuration, but it is not yet a complete security-hardened deployment:
 
 * Database passwords are stored in Kubernetes Secrets.
-* AWS resources use IAM roles where applicable.
+* Jenkins uses AWS authentication to access ECR; verify the active IAM identity and permissions before describing the setup as role-based.
 * Private ECR authentication is handled through Kubernetes image pull secrets.
-* Sensitive credentials are not committed to GitHub.
+* The deployment references database credentials through a Kubernetes Secret. Review the repository and its Git history before claiming that no credentials have ever been committed; rotate any real credential that may have appeared in source or history.
 * Application deployment is automated through Jenkins.
 
 ---
@@ -617,6 +611,8 @@ This project demonstrates practical experience with:
 * Automated deployment verification
 
 ## Project Evidence
+
+Screenshots are evidence of the environment at the time they were captured; they do not replace reproducible configuration in the repository. Monitoring configuration and dashboard exports are not currently maintained as code here.
 
 ### GitHub Repository
 
