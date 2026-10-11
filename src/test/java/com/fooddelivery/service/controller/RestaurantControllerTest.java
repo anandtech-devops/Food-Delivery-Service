@@ -1,5 +1,6 @@
 package com.fooddelivery.service.controller;
 
+import com.fooddelivery.service.controller.RestaurantController;
 import com.fooddelivery.service.entity.Restaurant;
 import com.fooddelivery.service.service.RestaurantService;
 import org.junit.jupiter.api.Test;
